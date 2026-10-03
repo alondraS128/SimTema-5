@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="15.0"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.alondrasystems.procesmuebles.HelloController">
+
+    <padding>
+        <Insets top="20"
+                right="25"
+                bottom="20"
+                left="25"/>
+    </padding>
+
+    <Label text="FABRICACIÓN DE MUEBLES"
+           style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+
+    <Label fx:id="welcomeText"
+           text="Presiona 'Iniciar proceso' para comenzar."
+           wrapText="true"/>
+
+    <Label text="ETAPAS DEL PROCESO"
+           style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+
+    <ListView fx:id="etapasListView"
+              prefHeight="290"/>
+
+    <Label fx:id="tareaLabel"
+           text="Tarea actual: ninguna"
+           style="-fx-font-size: 15px; -fx-font-weight: bold;"/>
+
+    <!-- Diseñar producto: contrato { nombre, descripcion } -->
+    <VBox fx:id="disenarBox"
+          spacing="8.0"
+          visible="false"
+          managed="false">
+        <Label text="Nombre"/>
+        <TextField fx:id="nombreField"
+                   promptText="Nombre del producto"/>
+        <Label text="Descripción"/>
+        <TextArea fx:id="descripcionArea"
+                  promptText="Descripción del producto"
+                  prefRowCount="3"
+                  wrapText="true"/>
+    </VBox>
+
+    <!-- Inspección: contrato { resultadoInspeccion } -->
+    <CheckBox fx:id="inspeccionCheckBox"
+              text="Cumple con el diseño"
+              visible="false"
+              managed="false"/>
+
+    <!-- Demás tareas: contrato { confirmado } -->
+    <CheckBox fx:id="confirmarCheckBox"
+              text="Confirmo que esta tarea está completa"
+              visible="false"
+              managed="false"/>
+
+    <HBox spacing="10">
+
+        <Button fx:id="enviarTareaButton"
+                text="Enviar"
+                visible="false"
+                managed="false"
+                onAction="#onEnviarTarea"/>
+
+        <Button fx:id="iniciarButton"
+                text="Iniciar proceso"
+                onAction="#onHelloButtonClick"/>
+
+    </HBox>
+
+</VBox>
